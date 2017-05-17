@@ -1,0 +1,39 @@
+<section ng-controller="EditWorkStatusController">
+  <div class="page-header">
+    <div class="row">
+      <div class="col-md-4">
+        <h1>Update Work Status</h1>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <form name="workStatusForm" ng-submit="updateworkstatus(workStatusForm.$valid)" novalidate>
+      <fieldset>
+        <div class="form-group" show-errors>
+          <label for="workStatus">Work Status</label>
+          <input type="text" id="workStatus" name="workStatus" class="form-control" ng-model="workstatus.workStatus" placeholder="Work Status" required />
+          <div ng-messages="workStatusForm.workStatus.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Work status is required.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label for="price">Price</label>
+          <input type="text" id="price" name="price" class="form-control" ng-model="workstatus.price" placeholder="Price" required />
+          <div ng-messages="workStatusForm.price.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Price is required.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label for="description">Description</label>
+          <textarea id="description" name="description" class="form-control" ng-model="workstatus.description" placeholder="Description"></textarea>
+        </div>
+        <div class="form-group">
+          <input type="submit" value="Save" class="btn btn-default">
+        </div>
+        <div ng-show="error" class="text-danger">
+          <strong ng-bind="error"></strong>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>

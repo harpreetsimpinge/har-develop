@@ -1,0 +1,45 @@
+<section ng-controller="WorkFaceController">
+  <div class="page-header">
+    <div class="row">
+      <div class="col-md-4">
+        <h1>Work Phase</h1>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <form name="workFaceForm" ng-submit="saveworkface(workFaceForm.$valid)" novalidate>
+      <fieldset>
+        <div class="form-group" show-errors>
+          <label for="workstatusid">Work Status</label>
+          <select id="workstatusid" name="workstatusid" ng-model="workface.workstatusid" class="form-control"  required >
+			<option value="">Select</option>
+			<option ng-repeat="workstatus in allworkstatus"  value="{{workstatus._id}}">{{workstatus.workStatus}}</option>
+		  </select>
+          <div ng-messages="workFaceForm.workstatusid.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Work Status is required.</p>
+          </div>
+        </div>
+		<div class="form-group" show-errors>
+          <label for="workface">Work Phase</label>
+          <input type="text" id="workface" name="workface" class="form-control" ng-model="workface.workface" placeholder="Work Phase" required />
+          <div ng-messages="workFaceForm.workface.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Work Phase is required.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label for="price">Price</label>
+          <input type="text" id="price" name="price" class="form-control" ng-model="workface.price" placeholder="Price" required />
+          <div ng-messages="workFaceForm.price.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Price is required.</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <input type="submit" value="Save" class="btn btn-default">&nbsp; <a href="/admin/allworkfaces" class="btn btn-primary">Back</a>
+        </div>
+        <div ng-show="error" class="text-danger">
+          <strong ng-bind="error"></strong>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>
